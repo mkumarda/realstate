@@ -25,5 +25,6 @@ jobs:
     - name: Docker build of the realstate app
       run: |
         docker build -t mkumarda/realstateapp:1.0.0 .
+        docker login -u mkumarda -p ${{ secrets.DOCKER_PASS }}
         docker push mkumarda/realstateapp:1.0.0
   
