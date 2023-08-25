@@ -36,6 +36,6 @@ jobs:
     - name: Connect to Kubernetes Cluster
       run: |
          echo "${{secrets.ANSIBLE_VAULT_KEY}}" >> pass.yaml
-         ansible-vault descrypt test.yaml --vault-password-file pass.yaml
+         ansible-vault decrypt test.yaml --vault-password-file pass.yaml
          export KUBECONFIG=test.yaml
   
