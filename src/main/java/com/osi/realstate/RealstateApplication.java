@@ -14,7 +14,11 @@ public class RealstateApplication {
 	}
 	 @GetMapping("/test")
 	public String index() {
-		return "CI/CD workflow test";
+		return "This is the CD workflow";
+	}
+	 @GetMapping("/hello")
+	public String index() {
+		return "Hello Guys! Hopefully you did learned the CD automation";
 	}
 
 }
