@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: realstate
-        image: mkumarda/realstateapp:1.0.0
+        image: mkumarda/test:1.0.0
         ports:
         - containerPort: 9090
