@@ -17,7 +17,7 @@ public class RealstateApplication {
 		return "This is the CD workflow";
 	}
 	 @GetMapping("/hello")
-	public String index() {
+	public String hello() {
 		return "Hello Guys! Hopefully you did learned the CD automation";
 	}
 
