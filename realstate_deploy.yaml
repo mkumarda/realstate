@@ -2,11 +2,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: realstate
+  namespace: realstate
 spec:
   selector:
     matchLabels:
       app: realstate
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
@@ -16,5 +17,4 @@ spec:
       - name: realstate
         image: mkumarda/realstateapp:1.0.0
         ports:
-        - containerPort: 8090
-
+        - containerPort: 9090
