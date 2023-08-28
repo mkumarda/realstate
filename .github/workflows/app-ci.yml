@@ -34,7 +34,7 @@ jobs:
       run: |
         docker build -t mkumarda/realstateapp:1.0.0 .
         docker login -u mkumarda -p ${{ secrets.DOCKER_PASS }}
-        docker push mkumarda/realstateapp:1.0.0
+        docker push mkumarda/test:1.0.0
 
     - name: Connect to Kubernetes Cluster and deploy the application
       run: |
