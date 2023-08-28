@@ -1,7 +1,10 @@
 name: Java CI with Maven
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -16,8 +19,8 @@ jobs:
 #        distribution: 'temurin'
 #        cache: maven
 #        
-#    - name: Build with Maven
-#     run: mvn clean install
+    - name: Build with Maven
+      run: mvn clean install
 #
 #    - name: Sonar Analysis
 #      run: |
@@ -27,15 +30,16 @@ jobs:
 #         -Dsonar.host.url=http://hivemet.com:9000 \
 #         -Dsonar.token=${{ secrets.SONAR_TOKEN }}
 
-#    - name: Docker build of the realstate app
-#      run: |
-#        docker build -t mkumarda/realstateapp:1.0.0 .
-#        docker login -u mkumarda -p ${{ secrets.DOCKER_PASS }}
-#        docker push mkumarda/realstateapp:1.0.0
+    - name: Docker build of the realstate app
+      run: |
+        docker build -t mkumarda/realstateapp:1.0.0 .
+        docker login -u mkumarda -p ${{ secrets.DOCKER_PASS }}
+        docker push mkumarda/realstateapp:1.0.0
 
     - name: Connect to Kubernetes Cluster
       run: |
          cd kubernetes
          export KUBECONFIG=admin.conf
-         kubectl get nodes
+         kubectl apply -f realstate_deploy.yaml 
+         kubectl expose deployment realstate --port 9090 --type NodePort -n realstate
   

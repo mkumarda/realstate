@@ -14,7 +14,7 @@ public class RealstateApplication {
 	}
 	 @GetMapping("/test")
 	public String index() {
-		return "Hey Guys! How are you doing Today!";
+		return "CI/CD workflow test";
 	}
 
 }
