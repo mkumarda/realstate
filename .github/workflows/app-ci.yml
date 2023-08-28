@@ -32,7 +32,7 @@ jobs:
 
     - name: Docker build of the realstate app
       run: |
-        docker build -t mkumarda/realstateapp:1.0.0 .
+        docker build -t mkumarda/test:1.0.0 .
         docker login -u mkumarda -p ${{ secrets.DOCKER_PASS }}
         docker push mkumarda/test:1.0.0
 
