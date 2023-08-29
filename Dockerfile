@@ -1,4 +1,4 @@
 FROM eclipse-temurin
-COPY target/*.jar test.jar
+COPY target/*.jar app.jar
 EXPOSE 9090
-ENTRYPOINT ["java","-jar","test.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
